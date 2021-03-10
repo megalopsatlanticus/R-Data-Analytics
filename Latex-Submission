@@ -1,0 +1,383 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[]{Calibri}
+  \setsansfont[]{Calibri}
+  \setmonofont[]{Calibri}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Assignment1-Data Analytics MSDS650 Robin Kurth},
+  pdfauthor={Tom Teasdale},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{setspace}
+\doublespacing
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Assignment 1 - Data Analytics\\ 
+MSDS650\\
+Robin Kurth}
+\author{Tom Teasdale}
+\date{3/9/2021}
+
+\begin{document}
+\maketitle
+
+\newpage
+
+\hypertarget{data-analytics}{%
+\subsection{Data Analytics}\label{data-analytics}}
+
+During this exercise, our goal was to explore commands in R, manipulate
+data and explore data tables. For my first step, I worked through the
+Assignment with the (iris) data set included in R. A unique copy of the
+code I used is up on my GitHub
+\url{https://github.com/megalopsatlanticus/R-Data-Tables/blob/main/Iris}.
+For my secondary chosen data set I chose to use data(Loblolly). This
+data set is an observation of growth of Loblolly Pine Trees over a time
+series. I applied some of the techniques covered in the example to gain
+insight into the data. To set the data up, I executed the code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(data.table)   }
+\FunctionTok{data}\NormalTok{(Loblolly)   }
+\NormalTok{pine }\OtherTok{\textless{}{-}} \FunctionTok{as.data.table}\NormalTok{(Loblolly)}
+\end{Highlighting}
+\end{Shaded}
+
+After that I chose to analyze my newly created data table in a variety
+of ways. To begin I chose to view the data column ``height'' mean
+organized by the variable ``age'' by executing the code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pine[, }\FunctionTok{mean}\NormalTok{(height), by}\OtherTok{=}\NormalTok{age]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    age        V1
+## 1:   3  4.237857
+## 2:   5 10.205000
+## 3:  10 27.442143
+## 4:  15 40.543571
+## 5:  20 51.468571
+## 6:  25 60.289286
+\end{verbatim}
+
+Following this, I decided to examine the mean by the other variable in
+the data set, ``Seed''. According to the help section of the Loblolly
+data set, this refers to the specific plant observed. I did this by
+executing the code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pine[, }\FunctionTok{mean}\NormalTok{(height), by}\OtherTok{=}\NormalTok{Seed]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Seed       V1
+##  1:  301 33.24667
+##  2:  303 34.10667
+##  3:  305 35.11500
+##  4:  307 31.32833
+##  5:  309 33.78167
+##  6:  311 31.65333
+##  7:  315 32.36000
+##  8:  319 32.88167
+##  9:  321 31.21167
+## 10:  323 33.55333
+## 11:  325 31.92333
+## 12:  327 30.60667
+## 13:  329 30.31333
+## 14:  331 31.02000
+\end{verbatim}
+
+I then explored manipulating the output further by labeling the data:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pine[,.(}\AttributeTok{height=}\FunctionTok{mean}\NormalTok{(height)), by}\OtherTok{=}\NormalTok{age][}\FunctionTok{order}\NormalTok{(age)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    age    height
+## 1:   3  4.237857
+## 2:   5 10.205000
+## 3:  10 27.442143
+## 4:  15 40.543571
+## 5:  20 51.468571
+## 6:  25 60.289286
+\end{verbatim}
+
+Subsetting the data through selection is a useful method to isolate
+specific portions of the data set. To accomplish this I decided to
+isolate all trees with the ``age'' of 15 into a separate vector. This
+was done by executing the code snippet:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pine1 }\OtherTok{\textless{}{-}}\NormalTok{pine[age}\SpecialCharTok{==}\StringTok{"15"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+Visualizing this new data, we can see this subset worked as intended:
+
+\begin{verbatim}
+##     height age Seed
+##  1:  41.74  15  301
+##  2:  42.83  15  303
+##  3:  44.40  15  305
+##  4:  39.07  15  307
+##  5:  41.66  15  309
+##  6:  39.55  15  311
+##  7:  40.85  15  315
+##  8:  41.13  15  319
+##  9:  38.98  15  321
+## 10:  42.44  15  323
+## 11:  40.20  15  325
+## 12:  37.82  15  327
+## 13:  37.79  15  329
+## 14:  39.15  15  331
+\end{verbatim}
+
+Proper labeling of the data is an important part of analysis and
+visualization. R has an intentional method of accomplishing this through
+the function \textbf{setnames()}. I decided to capitalize and expand on
+the column names of my datasets. I used \textbf{setnames()} by executing
+the code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{setnames}\NormalTok{(pine1, }\StringTok{"height"}\NormalTok{, }\StringTok{"Height in cm"}\NormalTok{)}
+\FunctionTok{setnames}\NormalTok{(pine1, }\StringTok{"age"}\NormalTok{, }\StringTok{"Age"}\NormalTok{)}
+\FunctionTok{setnames}\NormalTok{(pine1, }\StringTok{"Seed"}\NormalTok{, }\StringTok{"Seed No."}\NormalTok{)}
+\FunctionTok{setnames}\NormalTok{(pine, }\StringTok{"Seed"}\NormalTok{, }\StringTok{"Seed No."}\NormalTok{)}
+\FunctionTok{setnames}\NormalTok{(pine, }\StringTok{"age"}\NormalTok{, }\StringTok{"Age"}\NormalTok{)}
+\FunctionTok{setnames}\NormalTok{(pine, }\StringTok{"height"}\NormalTok{, }\StringTok{"Height in cm"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Continuing to use \textbf{data.tables}, I decided to observe all trees
+that exceeded 44cm in height. This was carried out by executing the
+code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pine[}\StringTok{\textasciigrave{}}\AttributeTok{Height in cm}\StringTok{\textasciigrave{}}\SpecialCharTok{\textgreater{}}\FloatTok{44.0}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     Height in cm Age Seed No.
+##  1:        52.70  20      301
+##  2:        60.92  25      301
+##  3:        53.88  20      303
+##  4:        63.39  25      303
+##  5:        44.40  15      305
+##  6:        55.82  20      305
+##  7:        64.10  25      305
+##  8:        50.78  20      307
+##  9:        59.07  25      307
+## 10:        53.31  20      309
+## 11:        63.05  25      309
+## 12:        51.46  20      311
+## 13:        59.64  25      311
+## 14:        51.33  20      315
+## 15:        60.07  25      315
+## 16:        52.43  20      319
+## 17:        60.69  25      319
+## 18:        49.76  20      321
+## 19:        60.28  25      321
+## 20:        53.17  20      323
+## 21:        61.62  25      323
+## 22:        50.06  20      325
+## 23:        58.49  25      325
+## 24:        48.43  20      327
+## 25:        56.81  25      327
+## 26:        48.31  20      329
+## 27:        56.43  25      329
+## 28:        49.12  20      331
+## 29:        59.49  25      331
+##     Height in cm Age Seed No.
+\end{verbatim}
+
+This displayed all trees larger than 44.0cm in length. I decided to
+subset this data into another separate vector with the code snippet:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{forty4 }\OtherTok{\textless{}{-}}\NormalTok{ pine[}\StringTok{\textasciigrave{}}\AttributeTok{Height in cm}\StringTok{\textasciigrave{}}\SpecialCharTok{\textgreater{}}\FloatTok{44.0}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+To obtain a mean of trees greater than 44.0cm, by age, I used the code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{forty4[, }\FunctionTok{mean}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Height in cm}\StringTok{\textasciigrave{}}\NormalTok{), by}\OtherTok{=}\NormalTok{Age]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Age       V1
+## 1:  20 51.46857
+## 2:  25 60.28929
+## 3:  15 44.40000
+\end{verbatim}
+
+To better visualize I labeled the data in data.tables by executing the
+code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{forty4[,. (}\AttributeTok{Height\_in\_cm=}\FunctionTok{mean}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Height in cm}\StringTok{\textasciigrave{}}\NormalTok{)), by}\OtherTok{=}\NormalTok{Age]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Age Height_in_cm
+## 1:  20     51.46857
+## 2:  25     60.28929
+## 3:  15     44.40000
+\end{verbatim}
+
+This data would be better visualized through ordering the ``Age''
+variable in descending order, from ``15'' to ``25''. This was
+accomplished by the code snippet:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{forty4[,. (}\AttributeTok{Height\_in\_cm=}\FunctionTok{mean}\NormalTok{(}\StringTok{\textasciigrave{}}\AttributeTok{Height in cm}\StringTok{\textasciigrave{}}\NormalTok{)), by}\OtherTok{=}\NormalTok{Age][}\FunctionTok{order}\NormalTok{(Age)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Age Height_in_cm
+## 1:  15     44.40000
+## 2:  20     51.46857
+## 3:  25     60.28929
+\end{verbatim}
+
+In conclusion the \textbf{data.tables} package in R is a useful tool for
+the analysis and visualization of data sets. While this data set did not
+posses additional variables like those in the \textbf{(iris)} data set,
+I do believe I was able to gain valuable insight into the
+\textbf{(Loblolly)} data set. I was able to obtain the mean height in
+centimeters by age, as well as subset the data by values within the
+variables (such as height being greater than 44.0 cm). In this exercise
+I personally learned some new syntax, such as that within the
+\textbf{data.tables} package, as well as some through my own reaserach
+while working through the exercise. \newpage REFERENCES
+
+data.table package (n.d). Rdocumentation.org. Retrieved on 10 March 2021
+from\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\url{https://www.rdocumentation.org/packages/data.table/versions/1.14.0}
+
+Grolemund, G. (2014, July 16). \emph{Introduction to R Markdown.}
+Rstudio.com\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\url{https://rmarkdown.rstudio.com/articles_intro.html}
+
+Iris Dataset. (n.d.). Rdocumentation.org. Retrieved on 10 March 2021
+from\\
+\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\hspace*{0.333em}\url{https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/iris}
+
+\end{document}
